@@ -1,0 +1,54 @@
+
+// Auther: jcunit
+
+program SoulSplitAgility;
+{$i SRL/SRL.simba}
+var
+  x, y : Integer;
+const
+
+COLOR = 937084;
+procedure ClickRock;
+begin
+Wait(1000);
+if
+  FindColor(x, y, COLOR, msx1, msy1, msx2, msy2) then
+  MoveMouse(x, y);
+  Wait(500);
+  Mouse(x, y, 0, 0, true);
+  Wait(2000);
+end;
+
+procedure MageBook;
+begin
+  MoveMouse(741, 173);
+  Wait(500);
+  ClickMouse(741, 173, mouse_Left);
+  Wait(500);
+end;
+
+procedure Tele1;
+begin
+  MoveMouse(570, 336);
+  Wait(500);
+  ClickMouse(570, 336, mouse_Left);
+  Wait(750);
+end;
+
+procedure Tele2;
+begin
+  MoveMouse(266, 380);
+  Wait(500);
+  ClickMouse(266, 380, mouse_Left);
+  Wait(3000);
+end;
+
+begin
+  setupsrl;
+  repeat
+  ClickRock;
+  MageBook;
+  Tele1;
+  Tele2;
+  until (IsKeyDown(114)); // F3 to stop the script
+end.
